@@ -20,6 +20,9 @@ variable "lvms" {
     subnet_name = string
     nic = string
     pip_enable = bool
+    auto_shutdown_enable = bool
+    auto_shutdown_time = string
+    auto_shutdown_timezone = string
     source_image_publisher = string
     source_image_offer = string
     source_image_sku = string
