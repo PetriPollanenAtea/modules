@@ -55,7 +55,7 @@ resource "azurerm_linux_virtual_machine" "lvm" {
 
 resource "azurerm_dev_test_global_vm_shutdown_schedule" "lvm_shutdown" {
   for_each = {for p in var.lvms : p.name => p if p.auto_shutdown_enable}
-  virtual_machine_id = [azurerm_linux_virtual_machine.lvm[each.value.lvm].id,]
+  virtual_machine_id = [azurerm_linux_virtual_machine.lvm[each.value.name].id,]
   location = var.location
   enabled = true
   daily_recurrence_time = each.value.auto_shutdown_time
