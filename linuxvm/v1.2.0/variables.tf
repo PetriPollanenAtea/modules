@@ -20,6 +20,10 @@ variable "lvms" {
     subnet_name = string
     nic = string
     pip_enable = bool
+    source_image_publisher = string
+    source_image_offer = string
+    source_image_sku = string
+    source_image_version = string
   }))
 }
 
@@ -32,25 +36,5 @@ variable "lvm_admin_username" {
 }
 
 variable "vnet_id" {
-  type = string
-}
-
-variable "source_image_publisher" {
-  type = string
-}
-
-variable "source_image_offer" {
-  type = string
-}
-
-variable "source_image_sku" {
-  type = string
-}
-
-variable "source_image_version" {
-  type = string
-}
-
-variable "keyvault_id" {
   type = string
 }

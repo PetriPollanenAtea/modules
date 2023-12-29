@@ -42,20 +42,13 @@ resource "azurerm_linux_virtual_machine" "lvm" {
     storage_account_type = "Standard_LRS"
   }
   source_image_reference {
-    publisher = var.source_image_publisher
-    offer = var.source_image_offer
-    sku = var.source_image_sku
-    version = var.source_image_version
+    publisher = each.value.source_image_publisher
+    offer = each.value.source_image_offer
+    sku = each.value.source_image_sku
+    version = each.value.source_image_version
   }
   computer_name = "vm-${each.value.name}"
   admin_username = var.lvm_admin_username
   admin_password = random_password.lvm_admin_password.result
   disable_password_authentication = false 
-}
-
-# Store admin password to Key Vault
-resource "azurerm_key_vault_secret" "lvm_admin_password" {
-  name = var.lvm_admin_username
-  value = random_password.lvm_admin_password.result
-  key_vault_id = var.keyvault_id
 }
