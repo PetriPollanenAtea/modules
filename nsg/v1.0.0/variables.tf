@@ -12,3 +12,12 @@ variable "nsg_name" {
   type        = string
   description = "Name of virtual network to create."
 }
+
+variable "vnet_id" {
+  type = string
+}
+
+variable "nsg_subnets" {
+  type        = list(string)
+  description = "Subnet ids"
+}
