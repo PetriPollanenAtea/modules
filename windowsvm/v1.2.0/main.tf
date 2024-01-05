@@ -16,7 +16,7 @@ resource "azurerm_network_interface" "wvm_nic" {
     name = "ipconfig1"
     subnet_id = "${var.vnet_id}/subnets/${each.value.subnet_name}"
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = try(azurerm_public_ip.lvm_pip[each.key].id,null)
+    public_ip_address_id = try(azurerm_public_ip.wvm_pip[each.key].id,null)
   }
 }
 
@@ -55,7 +55,7 @@ resource "azurerm_windows_virtual_machine" "wvm" {
 resource "azurerm_dev_test_global_vm_shutdown_schedule" "lvm_shutdown" {
   for_each = {for v in var.wvms : v.name => v if v.auto_shutdown_enable}
   # virtual_machine_id = [azurerm_linux_virtual_machine.lvm[each.value.name].id]
-  virtual_machine_id = try(azurerm_linux_virtual_machine.lvm[each.key].id,null)
+  virtual_machine_id = try(azurerm_linux_virtual_machine.wvm[each.key].id,null)
   location = var.location
   enabled = true
   daily_recurrence_time = each.value.auto_shutdown_time
