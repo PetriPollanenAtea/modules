@@ -8,17 +8,7 @@ variable "resource_group_name" {
   description = "Name of resource group to use."
 }
 
-variable "vnet_name" {
+variable "nsg_name" {
   type        = string
   description = "Name of virtual network to create."
-}
-
-variable "vnet_address_space" {
-  type        = list(string)
-  description = "List of address spaces to use with virtual network."
-}
-
-variable "subnets" {
-  type        = map(string)
-  description = "Name of subnet and address prefix"
 }
