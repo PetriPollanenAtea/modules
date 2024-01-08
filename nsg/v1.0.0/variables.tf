@@ -18,6 +18,6 @@ variable "vnet_id" {
 }
 
 variable "nsg_subnets" {
-  type        = map(string)
+  type        = set(string)
   description = "Subnet ids"
 }
