@@ -24,7 +24,15 @@ variable "retention" {
   default = 30
 }
 
-variable "dces" {
+variable "dce_name" {
+  type = string
+}
+
+variable "dce_kind" {
+  type = string
+}
+
+/* variable "dces" {
   type = map(object({
     description = "Azure Monitor Data Collection Endpoints"
     name = string
@@ -32,7 +40,6 @@ variable "dces" {
   }))
 }
 
-/*
 variable "dcrs" {
   type = map(object({
     name = string

@@ -7,11 +7,13 @@ resource "azurerm_log_analytics_workspace" "log" {
 }
 
 resource "azurerm_monitor_data_collection_endpoint" "dce" {
-  for_each = var.dces
+  # for_each = var.dces
   location = var.location
   resource_group_name = var.resource_group_name
-  name = "dcre-${each.value.name}"
-  kind = each.value.kind
+  # name = "dce-${each.value.name}"
+  name = "dce-${var.dce_name}"
+  # kind = each.value.kind
+  kind = var.dce_kind
 }
 
 /*
