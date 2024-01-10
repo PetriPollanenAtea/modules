@@ -8,17 +8,17 @@ variable "resource_group_name" {
   description = "Name of resource group to use."
 }
 
-variable "log_name" {
+variable "name" {
   type        = string
   description = "Name of virtual network to create."
 }
 
-variable "log_sku" {
+variable "sku" {
   type = string
   description = "Log Analytics Workspace SKU"
 }
 
-variable "log_retention" {
+variable "retention" {
   type = number
   description = "Log Analytics Workspace retention in days"
   default = 30
