@@ -11,6 +11,7 @@ resource "azurerm_monitor_data_collection_endpoint" "dce" {
   location = var.location
   resource_group_name = var.resource_group_name
   name = "dcre-${each.value.name}"
+  kind = each.value.kind
 }
 
 /*

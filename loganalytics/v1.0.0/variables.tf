@@ -26,7 +26,9 @@ variable "retention" {
 
 variable "dces" {
   type = map(object({
+    description = "Azure Monitor Data Collection Endpoints"
     name = string
+    kind = string
   }))
 }
 
